@@ -87,27 +87,24 @@ print(red)
 temp = format(random.randrange(30), "b")
 print(temp)
 
+
 # for task number 7
-count = 0
-while count < 3:
-    num = int(input('enter a number\n>> '))
-    num_list = (2, 3, 6, 1, 21, 8, 55, 3, 7)
-    count += 1
-    if num in num_list:
-        print('you are correct')
-        break
+# recursive binary search means to subdivide the entire binary search process into smaller problem
+
+def rec_Search(target, sequence, first, last):
+    if first > last:
+        return False
     else:
-        print('incorrect')
-        if count == 1:
-            print('try again')
-        elif count == 2:
-            print('try again')
-        elif count == 3:
-            print('try again')
+        mid = (last + first) // 2
+        if sequence[mid] == target:
+            return True
+        elif target < sequence[mid]:
+            return rec_Search(target, sequence, first, mid - 1)
         else:
-            continue
-else:
-    print('failed')
+            return rec_Search(target, sequence, mid + 1, last)
+
+
+seq = 1, 2, 3, 4, 5, 7, 12, 16, 23, 44, 50
 
 
 # for task number 9
