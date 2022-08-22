@@ -112,7 +112,7 @@ else:
 
 # for task number 9
 # Program to display the Fibonacci sequence up to n-th term
-def fibonacci_sequence():
+def fibonacci_sequence(n):
     n = 50
     # first two terms
     n1, n2 = 0, 1
