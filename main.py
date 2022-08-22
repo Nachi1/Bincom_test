@@ -113,18 +113,21 @@ else:
 # for task number 9
 # Program to display the Fibonacci sequence up to n-th term
 def fibonacci_sequence(n):
-    n = 50
-    # first two terms
-    n1, n2 = 0, 1
-    counts = 0
-    print("Fibonacci sequence:")
-    while counts < n:
-        print(n1)
-        nth = n1 + n2
-        # update values
-        n1 = n2
-        n2 = nth
-        counts += 1
+    if n <= 0:
+        return 0
+
+    fibo = [0] * (n + 1)
+    fibo[1] = 1
+
+    # Initialize result
+    sm = fibo[0] + fibo[1]
+
+    # Add remaining terms
+    for ai in range(2, n + 1):
+        fibo[ai] = fibo[ai - 1] + fibo[ai - 2]
+        sm = sm + fibo[ai]
+
+    return sm
 
 
-fibonacci_sequence(50)
+print('the sum of the fibonacci numbers is', fibonacci_sequence(50))
