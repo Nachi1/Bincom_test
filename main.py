@@ -117,27 +117,14 @@ def fibonacci_sequence():
     # first two terms
     n1, n2 = 0, 1
     counts = 0
-
-    # check if the number of terms is valid
-    if n <= 0:
-        print("Please enter a positive integer")
-    # if there is only one term, return n1
-    elif n == 1:
-        print("Fibonacci sequence upto", n, ":")
+    print("Fibonacci sequence:")
+    while counts < n:
         print(n1)
-    # generate fibonacci sequence
-    else:
-        print("Fibonacci sequence:")
-        while counts < n:
-            print(n1)
-            nth = n1 + n2
-            # update values
-            n1 = n2
-            n2 = nth
-            counts += 1
+        nth = n1 + n2
+        # update values
+        n1 = n2
+        n2 = nth
+        counts += 1
 
 
-fibonacci_sequence()
-n = 50
-sum1 = sum(i for i in range(1, n+1))
-print(sum1)
+fibonacci_sequence(50)
