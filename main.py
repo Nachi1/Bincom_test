@@ -1,8 +1,6 @@
 # Bincom Online test
-import statistics
-import random
 
-monday = ['GREEN', 'YELLOW', 'GREEN', 'BROWN', 'BLUE',
+monday = ['YELLOW', 'GREEN', 'BROWN', 'BLUE',
           'PINK', 'BLUE', 'YELLOW', 'ORANGE', 'CREAM', 'ORANGE', 'RED', 'WHITE', 'BLUE',
           'WHITE', 'BLUE', 'BLUE', 'BLUE', 'GREEN']
 tuesday = ['ARSH', 'BROWN', 'GREEN', 'BROWN', 'BLUE', 'BLUE', 'BLEW', 'PINK', 'PINK', 'ORANGE',
@@ -36,8 +34,9 @@ for g in friday:
     if g not in fri:
         fri.append(g)
 
-# this is to get every color
+# this is to get total color in the week
 week = monday + tuesday + wednesday + friday + thursday
+
 week_iteration = []
 for i in week:
     if i not in week_iteration:
@@ -45,7 +44,6 @@ for i in week:
 # print(week_iteration)
 
 # for no 1 question
-# getting the average of the colors
 list_num_of_colors = week.count('GREEN'), week.count('YELLOW'), week.count('ARSH'), week.count('BROWN'), week.count(
     'BLUE'), \
                      week.count('PINK'), week.count('ORANGE'), week.count('CREAM'), week.count('RED'), week.count(
@@ -53,78 +51,12 @@ list_num_of_colors = week.count('GREEN'), week.count('YELLOW'), week.count('ARSH
                      week.count('BLEW'), week.count('BLACK')
 
 
-# list_num_of_colors = (10, 5, 1, 6, 30, 5, 9, 2, 9, 16, 1, 1)
-def Avg(lst):
-    return sum(lst) / len(lst)
-
-
-lst = [10, 5, 1, 6, 30, 5, 9, 2, 9, 16, 1, 1]
-average = Avg(lst)
-print(average)
-
-# for no 2 task
-green = week.count('BLUE')  # 30 occurrences
-
-# for number 3 task
-median_of_list = statistics.median(week)
-print(median_of_list)
-
-# for no 4 task
-print("Variance of sample set is % s"
-      % (statistics.variance(list_num_of_colors)))
-
-# for number 5 task
-# probability of getting red color
-'''
-for p in week:
-    if p == 'RED':
-        red = [p]
-print(red)
-'''
-
-# for task number 8
-# generating 4 random numbers of binary
-temp = format(random.randrange(30), "b")
-print(temp)
-
-
-# for task number 7
-# recursive binary search means to subdivide the entire binary search process into smaller problem
-
-def rec_Search(target, sequence, first, last):
-    if first > last:
-        return False
-    else:
-        mid = (last + first) // 2
-        if sequence[mid] == target:
-            return True
-        elif target < sequence[mid]:
-            return rec_Search(target, sequence, first, mid - 1)
-        else:
-            return rec_Search(target, sequence, mid + 1, last)
-
-
-seq = 1, 2, 3, 4, 5, 7, 12, 16, 23, 44, 50
-
-
-# for task number 9
-# Program to display the Fibonacci sequence up to n-th term
-def fibonacci_sequence(n):
-    if n <= 0:
-        return 0
-
-    fibo = [0] * (n + 1)
-    fibo[1] = 1
-
-    # Initialize result
-    sm = fibo[0] + fibo[1]
-
-    # Add remaining terms
-    for ai in range(2, n + 1):
-        fibo[ai] = fibo[ai - 1] + fibo[ai - 2]
-        sm = sm + fibo[ai]
-
-    return sm
-
-
-print('the sum of the fibonacci numbers is', fibonacci_sequence(50))
+# getting the average of the colors
+total_week = len(week)
+length = []
+for r in week:
+    string_size = len(r)
+    length.append(string_size)
+    total_size = sum(length)
+avg = total_size / total_week
+#print(avg)
